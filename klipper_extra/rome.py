@@ -15,9 +15,14 @@ class ROME:
 		self.toolhead_filament_sensor = self.printer.lookup_object("filament_switch_sensor toolhead_filament_sensor")
 		self.f1_filament_sensor = None
 		self.f2_filament_sensor = None
+		self.f3_filament_sensor = None
+		self.f4_filament_sensor = None
+		self.f5_filament_sensor = None
+		self.f6_filament_sensor = None
+		self.f7_filament_sensor = None
+		self.f8_filament_sensor = None
 		self.y1_filament_sensor = None
 		self.y2_filament_sensor = None
-		self.z_filament_sensor = None
 
 		self.load_settings()
 		self.register_commands()
@@ -87,12 +92,22 @@ class ROME:
 				self.f1_filament_sensor = filament_sensor[1]
 			if sensor_name == 'feeder_2_filament_sensor':
 				self.f2_filament_sensor = filament_sensor[1]
+			if sensor_name == 'feeder_3_filament_sensor':
+				self.f3_filament_sensor = filament_sensor[1]
+			if sensor_name == 'feeder_4_filament_sensor':
+				self.f4_filament_sensor = filament_sensor[1]
+			if sensor_name == 'feeder_5_filament_sensor':
+				self.f5_filament_sensor = filament_sensor[1]
+			if sensor_name == 'feeder_6_filament_sensor':
+				self.f6_filament_sensor = filament_sensor[1]
+			if sensor_name == 'feeder_7_filament_sensor':
+				self.f7_filament_sensor = filament_sensor[1]
+			if sensor_name == 'feeder_8_filament_sensor':
+				self.f8_filament_sensor = filament_sensor[1]
 			if sensor_name == 'y1_filament_sensor':
 				self.y1_filament_sensor = filament_sensor[1]
 			if sensor_name == 'y2_filament_sensor':
 				self.y2_filament_sensor = filament_sensor[1]
-			if sensor_name == 'z_filament_sensor':
-				self.z_filament_sensor = filament_sensor[1]
 
 	# -----------------------------------------------------------------------------------------------------------------------------
 	# Heater Timeout Handler
@@ -1293,6 +1308,24 @@ class ROME:
 		elif tool == 2:
 			if self.f2_filament_sensor != None:
 				return bool(self.f2_filament_sensor.runout_helper.filament_present)
+		elif tool == 3:
+			if self.f3_filament_sensor != None:
+				return bool(self.f3_filament_sensor.runout_helper.filament_present)
+		elif tool == 4:
+			if self.f4_filament_sensor != None:
+				return bool(self.f4_filament_sensor.runout_helper.filament_present)
+		elif tool == 5:
+			if self.f5_filament_sensor != None:
+				return bool(self.f5_filament_sensor.runout_helper.filament_present)
+		elif tool == 6:
+			if self.f6_filament_sensor != None:
+				return bool(self.f6_filament_sensor.runout_helper.filament_present)
+		elif tool == 7:
+			if self.f7_filament_sensor != None:
+				return bool(self.f7_filament_sensor.runout_helper.filament_present)
+		elif tool == 8:
+			if self.f8_filament_sensor != None:
+				return bool(self.f8_filament_sensor.runout_helper.filament_present)
 		return False
 
 	def disable_f_filament_sensor(self):
@@ -1300,12 +1333,36 @@ class ROME:
 			self.f1_filament_sensor.runout_helper.sensor_enabled = False
 		if self.f2_filament_sensor != None:
 			self.f2_filament_sensor.runout_helper.sensor_enabled = False
+		if self.f3_filament_sensor != None:
+			self.f3_filament_sensor.runout_helper.sensor_enabled = False
+		if self.f4_filament_sensor != None:
+			self.f4_filament_sensor.runout_helper.sensor_enabled = False
+		if self.f5_filament_sensor != None:
+			self.f5_filament_sensor.runout_helper.sensor_enabled = False
+		if self.f6_filament_sensor != None:
+			self.f6_filament_sensor.runout_helper.sensor_enabled = False
+		if self.f7_filament_sensor != None:
+			self.f7_filament_sensor.runout_helper.sensor_enabled = False
+		if self.f8_filament_sensor != None:
+			self.f8_filament_sensor.runout_helper.sensor_enabled = False
 
 	def enable_f_filament_sensor(self):
 		if self.f1_filament_sensor != None:
 			self.f1_filament_sensor.runout_helper.sensor_enabled = True
 		if self.f2_filament_sensor != None:
 			self.f2_filament_sensor.runout_helper.sensor_enabled = True
+		if self.f3_filament_sensor != None:
+			self.f3_filament_sensor.runout_helper.sensor_enabled = True
+		if self.f4_filament_sensor != None:
+			self.f4_filament_sensor.runout_helper.sensor_enabled = True
+		if self.f5_filament_sensor != None:
+			self.f5_filament_sensor.runout_helper.sensor_enabled = True
+		if self.f6_filament_sensor != None:
+			self.f6_filament_sensor.runout_helper.sensor_enabled = True
+		if self.f7_filament_sensor != None:
+			self.f7_filament_sensor.runout_helper.sensor_enabled = True
+		if self.f8_filament_sensor != None:
+			self.f8_filament_sensor.runout_helper.sensor_enabled = True
 
 	def enable_toolhead_filament_sensor(self):
 		self.toolhead_filament_sensor.runout_helper.sensor_enabled = True
