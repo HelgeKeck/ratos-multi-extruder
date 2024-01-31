@@ -91,7 +91,7 @@ ROME_END_PRINT
 
 **Printer Tool change G-code**
 ```
-CHANGE_TOOL TOOL=[next_extruder]
+T=[next_extruder]
 ```
 
 **Filament Start G-code**
