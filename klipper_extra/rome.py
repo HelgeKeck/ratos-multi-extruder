@@ -218,6 +218,11 @@ class ROME:
         for i in range(1, self.tool_count + 1):
             self.Filament_Cache.append(False)
 
+        x0 = param.get_float('X0', None, minval=0, maxval=999) 
+        x1 = param.get_float('X1', None, minval=0, maxval=999) 
+        y0 = param.get_float('Y0', None, minval=0, maxval=999) 
+        y1 = param.get_float('Y1', None, minval=0, maxval=999) 
+
         self.wipe_tower_x = param.get_float('WIPE_TOWER_X', None, minval=0, maxval=999) 
         self.wipe_tower_y = param.get_float('WIPE_TOWER_Y', None, minval=0, maxval=999)
         self.wipe_tower_width = param.get_float('WIPE_TOWER_WIDTH', None, minval=0, maxval=999)
@@ -241,7 +246,7 @@ class ROME:
 
         self.gcode.run_script_from_command("SET_GCODE_VARIABLE MACRO=RatOS VARIABLE=relative_extrusion VALUE=True")
         self.gcode.run_script_from_command("SET_GCODE_VARIABLE MACRO=_START_PRINT_AFTER_HEATING_EXTRUDER VARIABLE=tool VALUE=" + str(tool + 1))
-        self.gcode.run_script_from_command("START_PRINT BED_TEMP=" + str(bed_temp) + " EXTRUDER_TEMP=" + str(extruder_temp) + " CHAMBER_TEMP=" + str(chamber_temp))
+        self.gcode.run_script_from_command("START_PRINT BED_TEMP=" + str(bed_temp) + " EXTRUDER_TEMP=" + str(extruder_temp) + " CHAMBER_TEMP=" + str(chamber_temp) + " X0=" + str(x0) + " X1=" + str(x0) + " Y0=" + str(x0) + " Y1=" + str(x0))
 
     def cmd_ROME_INSERT_GCODE(self, param):
         self.insert_gcode()
